@@ -5,26 +5,21 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: nkuydin <nikitakuydin@qmail.com>           #+#  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026-06-17 11:52:20 by nkuydin           #+#    #+#             */
-/*   Updated: 2026-06-17 11:52:20 by nkuydin          ###   ########.fr       */
+/*   Created: 2026-06-17 15:27:00 by nkuydin           #+#    #+#             */
+/*   Updated: 2026-06-17 15:27:00 by nkuydin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Harl.hpp"
-
-/*
-    In C++, functions can be treated as objects with the help of function pointers. 
-*/
+#include "Fixed.hpp"
 
 int main(void) {
-    Harl harl;
+    Fixed a;
+    Fixed b(a);
+    Fixed c;
+    c = b;
 
-    std::cout << "#####Contextual information." << std::endl;
-    harl.complain("DEBUG");
-    std::cout << "#####Extensive information." << std::endl;
-    harl.complain("INFO");
-    std::cout << "#####Warning message." << std::endl;
-    harl.complain("WARNING");
-    std::cout << "#####Critical issue." << std::endl;
-    harl.complain("ERROR");
+    std::cout << a.getRawBits() << std::endl;
+    std::cout << b.getRawBits() << std::endl;
+    std::cout << c.getRawBits() << std::endl;
+    return 0;
 }

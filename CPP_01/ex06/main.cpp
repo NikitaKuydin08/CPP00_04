@@ -16,15 +16,11 @@
     In C++, functions can be treated as objects with the help of function pointers. 
 */
 
-int main(void) {
+int main(int argc, char **argv) {
     Harl harl;
 
-    std::cout << "#####Contextual information." << std::endl;
-    harl.complain("DEBUG");
-    std::cout << "#####Extensive information." << std::endl;
-    harl.complain("INFO");
-    std::cout << "#####Warning message." << std::endl;
-    harl.complain("WARNING");
-    std::cout << "#####Critical issue." << std::endl;
-    harl.complain("ERROR");
+    if (argc != 2 || !argv[1] || argv[1] == '\0')
+        return (std::cout << "Incorrect use of filter program" << std::endl, 1);
+    harl.complain(argv[1]);
+    return (0);
 }
