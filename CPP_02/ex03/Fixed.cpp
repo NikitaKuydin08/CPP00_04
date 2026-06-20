@@ -77,7 +77,7 @@ std::ostream &operator<<(std::ostream &os, Fixed const &fix) {
 //         4 arithmetic operators
 
 Fixed Fixed::operator+(const Fixed &other) const {
-    std::cout << "Addition operator overloading called" << std::endl;
+    // std::cout << "Addition operator overloading called" << std::endl;
     return Fixed(this->toFloat() + other.toFloat());
 }
 

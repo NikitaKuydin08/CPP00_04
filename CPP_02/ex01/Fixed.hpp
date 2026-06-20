@@ -19,7 +19,7 @@
 class Fixed {
     private:
         int _fp_value;
-        static const int _fractional_bits = 8;
+        static const int _fractional_bits;
 
     public:
         Fixed(void);

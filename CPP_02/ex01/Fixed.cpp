@@ -12,10 +12,7 @@
 
 #include "Fixed.hpp"
 
-/*
-        Introduction to fixed point number representation.
-
-*/
+const int Fixed::_fractional_bits = 8;
 
 Fixed::Fixed(void) {
     std::cout << "Default constructor called" << std::endl;
@@ -32,7 +29,7 @@ Fixed::Fixed(const int n) {
 // converts it to the corresponding fixed-point value
 Fixed::Fixed(const float f) {
     std::cout << "Float constructor called" << std::endl;
-    this->_fp_value = roundf(f * (1 << this->_fractional_bits));
+    this->_fp_value = std::roundf(f * (1 << this->_fractional_bits));
 }
 
 Fixed::Fixed(const Fixed &copy) : _fp_value(copy._fp_value) {
@@ -61,7 +58,7 @@ void Fixed::setRawBits(int const raw) {
 
 // converts the fixed-point value to a floating-point value
 float Fixed::toFloat(void) const {
-    float output = (float)this->_fp_value / (1 << this->_fractional_bits);
+    float output = static_cast<float>(this->_fp_value / (1 << this->_fractional_bits));
     return (output);
 }
 
