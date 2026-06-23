@@ -10,16 +10,15 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ClapTrap.hpp"
+#include "ScavTrap.hpp"
+#include "FragTrap.hpp"
+#include "DiamondTrap.hpp"
 
 int main(void) {
-    ClapTrap demon;
-    ClapTrap angel("Angel");
+    // ClapTrap clap("Clap");
+    DiamondTrap diamond;
 
-    demon.attack("Air");
-    demon.takeDamage(5);
-    demon.takeDamage(4);
-    demon.beRepaired(2);
-    angel.attack("Ground");
+    std::cout << diamond << std::endl;
+
     return (0);
 }

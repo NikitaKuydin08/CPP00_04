@@ -1,25 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.cpp                                           :+:      :+:    :+:   */
+/*   FrahTrap.hpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: nkuydin <nikitakuydin@qmail.com>           #+#  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026-06-22 08:54:21 by nkuydin           #+#    #+#             */
-/*   Updated: 2026-06-22 08:54:21 by nkuydin          ###   ########.fr       */
+/*   Created: 2026-06-23 08:13:35 by nkuydin           #+#    #+#             */
+/*   Updated: 2026-06-23 08:13:35 by nkuydin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#ifndef FRAGTRAP_HPP
+# define FRAGTRAP_HPP
+
 #include "ClapTrap.hpp"
 
-int main(void) {
-    ClapTrap demon;
-    ClapTrap angel("Angel");
+class FragTrap : public ClapTrap {
+    public:
+        FragTrap(void);
+        FragTrap(std::string name);
+        FragTrap(const FragTrap &other);
+        FragTrap& operator=(const FragTrap &other);
+        ~FragTrap(void);
 
-    demon.attack("Air");
-    demon.takeDamage(5);
-    demon.takeDamage(4);
-    demon.beRepaired(2);
-    angel.attack("Ground");
-    return (0);
-}
+        void HighFivesGuys(void);
+        std::string getName(void);
+};
+
+#endif

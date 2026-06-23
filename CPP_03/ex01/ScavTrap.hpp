@@ -1,25 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.cpp                                           :+:      :+:    :+:   */
+/*   ScavTrap.hpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: nkuydin <nikitakuydin@qmail.com>           #+#  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026-06-22 08:54:21 by nkuydin           #+#    #+#             */
-/*   Updated: 2026-06-22 08:54:21 by nkuydin          ###   ########.fr       */
+/*   Created: 2026-06-22 10:08:55 by nkuydin           #+#    #+#             */
+/*   Updated: 2026-06-22 10:08:55 by nkuydin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ClapTrap.hpp"
+#ifndef SCAVTRAP_HPP
+# define SCAVTRAP_HPP
 
-int main(void) {
-    ClapTrap demon;
-    ClapTrap angel("Angel");
+# include "ClapTrap.hpp"
 
-    demon.attack("Air");
-    demon.takeDamage(5);
-    demon.takeDamage(4);
-    demon.beRepaired(2);
-    angel.attack("Ground");
-    return (0);
-}
+class ScavTrap : public ClapTrap {
+    public:
+        ScavTrap(void);
+        ScavTrap(std::string name);
+        ScavTrap(const ScavTrap &copy);
+        ScavTrap &operator=(const ScavTrap &copy);
+        ~ScavTrap(void);
+
+        void attack(const std::string& target);
+        void guardGate();
+};
+
+#endif
