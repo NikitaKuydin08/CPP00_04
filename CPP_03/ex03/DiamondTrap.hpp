@@ -16,20 +16,21 @@
 # include "FragTrap.hpp"
 # include "ScavTrap.hpp"
 
-class DiamondTrap : public FragTrap, public ScavTrap {
+class DiamondTrap : public ScavTrap, public FragTrap {
     private:
         std::string _name;
 
     public:
         DiamondTrap(void);
         DiamondTrap(std::string name);
-        // DiamondTrap(const DiamondTrap &copy);
-        // DiamondTrap& operator=(const DiamondTrap &copy);
-        // ~DiamondTrap(void);
+        DiamondTrap(const DiamondTrap &copy);
+        DiamondTrap& operator=(const DiamondTrap &copy);
+        ~DiamondTrap(void);
 
-        // void whoAmI(void);
+        void whoAmI(void);
         using ScavTrap::attack;
         std::string status(void) const;
+        virtual std::string getName(void);
 };
 
 std::ostream &operator<<(std::ostream &os, DiamondTrap const &diamond);

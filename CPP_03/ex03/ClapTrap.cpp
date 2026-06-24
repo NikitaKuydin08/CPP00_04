@@ -39,31 +39,31 @@ ClapTrap::~ClapTrap(void) {
 
 void ClapTrap::attack(const std::string& target) {
     if (this->_hit <= 0)
-        std::cout << this->_name << " is dead." << std::endl;
-    std::cout << this->_name << " took a stick in his arms. ";
+        std::cout << getName() << " is dead." << std::endl;
+    std::cout << getName() << " took a stick in his arms. ";
     if (this->_energy > 0)
     {
         this->_energy--;
-        std::cout << "ClapTrap " << this->_name << " punches "
+        std::cout << "ClapTrap " << getName() << " punches "
         << target << ", causing " << this->_damage << " points of damage!" << std::endl;
         std::cout << "Remaining energy: " << this->_energy << std::endl;
     }
     else
-        std::cout << this->_name << " is too weak, to strike." << std::endl;
+        std::cout << getName() << " is too weak, to strike." << std::endl;
 }
 
 void ClapTrap::takeDamage(unsigned int amount) {
     if (this->_hit > amount)
     {
         this->_hit -= amount;
-        std::cout << this->_name << " took damage in total of " << amount << " points!" << std::endl;
+        std::cout << getName() << " took damage in total of " << amount << " points!" << std::endl;
         std::cout << "Remaining HP: " << this->_hit << std::endl;
     }
     else
     {
         this->_hit = 0;
-        std::cout << this->_name << " took damage in total of " << amount << " points!" << std::endl;
-        std::cout << this->_name << " died from the attack." << std::endl;
+        std::cout << getName() << " took damage in total of " << amount << " points!" << std::endl;
+        std::cout << getName() << " died from the attack." << std::endl;
     }
 }
 
@@ -72,9 +72,13 @@ void ClapTrap::beRepaired(unsigned int amount) {
     {
         this->_hit += amount;
         this->_energy--;
-        std::cout << this->_name << " got repaired by " << amount
+        std::cout << getName() << " got repaired by " << amount
         << ", his updated HP: " << this->_hit << " & EG: " << this->_energy << std::endl; 
     }
     else
-        std::cout << this->_name << " is too weak, to repair himself." << std::endl;
+        std::cout << getName() << " is too weak, to repair himself." << std::endl;
+}
+
+std::string ClapTrap::getName(void) {
+    return (this->_name);
 }

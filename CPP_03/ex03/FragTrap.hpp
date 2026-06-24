@@ -24,7 +24,6 @@ class FragTrap : virtual public ClapTrap {
         ~FragTrap(void);
 
         void HighFivesGuys(void);
-        std::string getName(void);
 };
 
 #endif

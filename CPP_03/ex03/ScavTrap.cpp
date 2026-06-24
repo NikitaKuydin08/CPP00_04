@@ -12,6 +12,10 @@
 
 #include "ScavTrap.hpp"
 
+int ScavTrap::getScavEng(void) {
+    return (this->_energy);
+}
+
 ScavTrap::ScavTrap(void) : ClapTrap() {
     this->_hit = 100;
     this->_energy = 50;
@@ -46,14 +50,14 @@ void ScavTrap::guardGate(void) {
 
 void ScavTrap::attack(const std::string &target) {
     if (this->_hit <= 0)
-        std::cout << this->_name << " is dead." << std::endl;
-    std::cout << this->_name << " took a stick in his arms. ";
+        std::cout << getName() << " is dead." << std::endl;
+    std::cout << getName() << " took a stick in his arms. ";
     if (this->_energy > 0)
     {
-        std::cout << "ScavTrap " << this->_name << " punches "
+        std::cout << "ScavTrap " << getName() << " punches "
         << target << ", causing " << this->_damage << " points of damage!" << std::endl;
         this->_energy--;
     }
     else
-        std::cout << this->_name << " is too weak, to strike." << std::endl;
+        std::cout << getName() << " is too weak, to strike." << std::endl;
 }
