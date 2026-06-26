@@ -50,7 +50,7 @@ void ScavTrap::guardGate(void) {
 
 void ScavTrap::attack(const std::string &target) {
     if (this->_hit <= 0)
-        std::cout << getName() << " is dead." << std::endl;
+        std::cout << this->_name << " is dead." << std::endl;
     std::cout << getName() << " took a stick in his arms. ";
     if (this->_energy > 0)
     {
