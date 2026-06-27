@@ -1,7 +1,7 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   WrongWrongCat.cpp                                       :+:      :+:    :+:   */
+/*   WrongWrongWrongCat.cpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: nkuydin <nikitakuydin@qmail.com>           #+#  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
@@ -11,30 +11,29 @@
 /* ************************************************************************** */
 
 #include "WrongCat.hpp"
+#include <iostream>
+
+static const std::string className = "WrongCat";
 
 WrongCat::WrongCat(void) : WrongAnimal() {
-    std::cout << "WrongCat Default constructor called" << std::endl;
-    this->type = "WrongCat";
+    std::cout << className << " Default constructor called" << std::endl;
+    this->setType(className);
 }
 
 WrongCat::WrongCat(const WrongCat &copy) : WrongAnimal(copy) {
-    std::cout << "WrongCat Copy constructor called" << std::endl;
+    std::cout << className << " Copy constructor called" << std::endl;
 }
 
 WrongCat& WrongCat::operator=(const WrongCat &copy) {
-    std::cout << "WrongCat Copy assignment operator called" << std::endl;
+    std::cout << className << " Copy assignment operator called" << std::endl;
     WrongAnimal::operator=(copy);
     return (*this);
 }
 
 WrongCat::~WrongCat(void) {
-    std::cout << "WrongCat Destructor called" << std::endl;
+    std::cout << className << " Destructor called" << std::endl;
 }
 
 void WrongCat::makeSound(void) const {
-    std::cout << "Meow Meow Meow" << std::endl;
-}
-
-std::string WrongCat::getType(void) const {
-    return (this->type);
+    std::cout << this->getType() << " makes - Meow Meow Meow" << std::endl;
 }

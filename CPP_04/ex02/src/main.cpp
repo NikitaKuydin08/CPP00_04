@@ -1,32 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   WrongAnimal.hpp                                    :+:      :+:    :+:   */
+/*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: nkuydin <nikitakuydin@qmail.com>           #+#  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026-06-25 10:19:51 by nkuydin           #+#    #+#             */
-/*   Updated: 2026-06-25 10:19:51 by nkuydin          ###   ########.fr       */
+/*   Created: 2026-06-24 14:12:59 by nkuydin           #+#    #+#             */
+/*   Updated: 2026-06-24 14:12:59 by nkuydin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef WRONGANIMAL_HPP
-# define WRONGANIMAL_HPP
+#include "Dog.hpp"
+#include "Cat.hpp"
+#include "WrongCat.hpp"
 
-# include <iostream>
+#include <iostream>
 
-class WrongAnimal {
-    protected:
-        std::string type;
+int main()
+{
+    const Animal* j = new Dog();
+    const Animal* i = new Cat();
+    delete j;//should not create a leak
+    delete i;
     
-    public:
-        WrongAnimal(void);
-        WrongAnimal(const WrongAnimal &copy);
-        WrongAnimal& operator=(const WrongAnimal &copy);
-        virtual ~WrongAnimal(void);
+	const Animal* an = new Animal(); // not possible, compilation error
 
-        void makeSound(void) const;
-        virtual std::string getType(void) const;
-};
-
-#endif
+    return 0;
+}
