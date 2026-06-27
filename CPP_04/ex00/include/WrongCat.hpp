@@ -23,7 +23,6 @@ class WrongCat : public WrongAnimal {
         virtual ~WrongCat(void);
 
         void makeSound(void) const;
-        virtual std::string getType(void) const;
 };
 
 #endif

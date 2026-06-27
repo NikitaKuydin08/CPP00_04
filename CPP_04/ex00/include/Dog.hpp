@@ -23,7 +23,6 @@ class Dog : public Animal {
         virtual ~Dog(void);
 
         virtual void makeSound(void) const;
-        virtual std::string getType(void) const;
 };
 
 #endif

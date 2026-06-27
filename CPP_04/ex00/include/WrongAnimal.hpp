@@ -13,11 +13,12 @@
 #ifndef WRONGANIMAL_HPP
 # define WRONGANIMAL_HPP
 
-# include <iostream>
+# include <string>
 
 class WrongAnimal {
     protected:
         std::string type;
+        void setType(const std::string &_type);
     
     public:
         WrongAnimal(void);
@@ -26,7 +27,7 @@ class WrongAnimal {
         virtual ~WrongAnimal(void);
 
         void makeSound(void) const;
-        virtual std::string getType(void) const;
+        std::string getType(void) const;
 };
 
 #endif

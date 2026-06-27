@@ -1,19 +1,37 @@
-NAME = Animal
+NAME = Brain
 
 CXX = c++
-CXXFLAGS = -Wall -Wextra -Werror -Wshadow -std=c++98 
+CXXFLAGS = -Wall -Wextra -Werror -std=c++98 
 
-SRC = main.cpp Animal.cpp Cat.cpp Dog.cpp WrongAnimal.cpp WrongCat.cpp Brain.cpp
+INCLUDE_DIRS = \
+				./include/
 
-OBJS = ${SRC:.cpp=.o}
+INCLUDE = ${addprefix -I, ${INCLUDE_DIRS}}
+
+SRC = \
+				./src/Animal.cpp \
+				./src/Cat.cpp \
+				./src/Dog.cpp \
+				./src/main.cpp \
+				./src/WrongAnimal.cpp \
+				./src/WrongCat.cpp \
+				./src/Brain.cpp
+
+OBJ = ${patsubst ./src/%.cpp,./obj/%.o,${SRC}}
 
 all: ${NAME}
 
-${NAME}: ${OBJS}
-	${CXX} ${CXXLAGS} ${OBJS} -o ${NAME}
+${NAME}: ${OBJ}
+	${CXX} ${OBJ} -o $@
+
+./obj/%.o: ./src/%.cpp | obj_dir
+	${CXX} ${CXXFLAGS} ${INCLUDE} -c $< -o $@ 
+
+./obj_dir/:
+	@mkdir -p obj
 
 clean:
-	rm -rf ${OBJS}
+	rm -rf obj
 
 fclean: clean
 	rm -f ${NAME}

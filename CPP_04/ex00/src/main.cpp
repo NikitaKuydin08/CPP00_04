@@ -14,6 +14,8 @@
 #include "Cat.hpp"
 #include "WrongCat.hpp"
 
+#include <iostream>
+
 // int main()
 // {
 //     const Animal* meta = new Animal();
@@ -43,9 +45,7 @@ int main()
     const WrongAnimal* i = new WrongCat();
     std::cout << j->getType() << " " << std::endl;
     std::cout << i->getType() << " " << std::endl;
-    std::cout << "Cat's sound: ";
     i->makeSound();
-    std::cout << "Dog's sound: ";
     j->makeSound();
     meta->makeSound();
 

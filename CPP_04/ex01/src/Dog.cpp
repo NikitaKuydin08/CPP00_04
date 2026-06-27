@@ -11,31 +11,36 @@
 /* ************************************************************************** */
 
 #include "Dog.hpp"
+#include <iostream>
 
-Dog::Dog(void) {
-    std::cout << "Dog Default constructor called" << std::endl;
-    this->type = "Dog";
+static const std::string className = "Dog";
+
+Dog::Dog(void) : Animal(), brain(new Brain) {
+    std::cout << className << " Default constructor called" << std::endl;
+    this->setType(className);
 }
 
-Dog::Dog(const Dog &copy) : Animal(copy) {
-    std::cout << "Dog Copy constructor called" << std::endl;
+Dog::Dog(const Dog &copy) : Animal(copy), brain(new Brain) {
+    std::cout << className << " Copy constructor called" << std::endl;
+    *(this->brain) = *copy.brain;
 }
 
 Dog& Dog::operator=(const Dog &copy) {
-    std::cout << "Dog Copy assignment operator called" << std::endl;
-    Animal::operator=(copy);
+    std::cout << className << " Copy assignment operator called" << std::endl;
+    if (this == &copy) return (*this);
+    delete this->getBrain();
+    this->brain = new Brain();
+    *(this->brain) = *copy.brain;
     return (*this);
 }
 
 Dog::~Dog(void) {
-    std::cout << "Dog Destructor called" << std::endl;
+    delete this->getBrain();
+    std::cout << className << " Destructor called" << std::endl;
 }
 
 void Dog::makeSound(void) const {
-    std::cout << "Guff Guff Guff" << std::endl;
+    std::cout << this->getType() << " makes - Guff Guff Guff" << std::endl;
 }
 
-std::string Dog::getType(void) const {
-    return (this->type);
-}
-
+Brain* Dog::getBrain(void) const {return (this->brain); }

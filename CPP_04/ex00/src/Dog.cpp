@@ -11,31 +11,29 @@
 /* ************************************************************************** */
 
 #include "Dog.hpp"
+#include <iostream>
 
-Dog::Dog(void) {
-    std::cout << "Dog Default constructor called" << std::endl;
-    this->type = "Dog";
+static const std::string className = "Dog";
+
+Dog::Dog(void) : Animal() {
+    std::cout << className << " Default constructor called" << std::endl;
+    this->setType(className);
 }
 
 Dog::Dog(const Dog &copy) : Animal(copy) {
-    std::cout << "Dog Copy constructor called" << std::endl;
+    std::cout << className << " Copy constructor called" << std::endl;
 }
 
 Dog& Dog::operator=(const Dog &copy) {
-    std::cout << "Dog Copy assignment operator called" << std::endl;
+    std::cout << className << " Copy assignment operator called" << std::endl;
     Animal::operator=(copy);
     return (*this);
 }
 
 Dog::~Dog(void) {
-    std::cout << "Dog Destructor called" << std::endl;
+    std::cout << className << " Destructor called" << std::endl;
 }
 
 void Dog::makeSound(void) const {
-    std::cout << "Guff Guff Guff" << std::endl;
+    std::cout << this->getType() << " makes - Guff Guff Guff" << std::endl;
 }
-
-std::string Dog::getType(void) const {
-    return (this->type);
-}
-
