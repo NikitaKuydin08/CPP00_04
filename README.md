@@ -103,7 +103,7 @@ make re     # fclean + rebuild
 
 ## Related
 
-- [CPP05_09](#) — modules 5 through 8 continue this progression: exceptions, casts, templates, and template-based containers. *(link to add)*
+- [CPP05_09](https://github.com/NikitaKuydin08/CPP05_09/) — modules 5 through 8 continue this progression: exceptions, casts, templates, and template-based containers. *(link to add)*
 
 ---
 
